@@ -2,6 +2,8 @@ FV/
 TB/
 CG/
 tmp/
+.*/
+*.csv
 
 
 ### LaTex ###
