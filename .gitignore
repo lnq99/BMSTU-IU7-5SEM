@@ -4,6 +4,7 @@ CG/
 tmp/
 .*/
 *.csv
+*/src/*/report/
 
 
 ### LaTex ###
