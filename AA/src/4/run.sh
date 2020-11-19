@@ -16,6 +16,7 @@ echo "\n=========== Benchmark ==========="
 
 echo "\n============ Program ============"
 ./app
+# ./app -b > ../report/benchmark_main.csv
 )
 
 # https://devhints.io/bash
