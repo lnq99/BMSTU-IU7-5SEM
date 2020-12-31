@@ -6,7 +6,7 @@
 последовательного и параллельного алгоритма Винограда.
 
 \section{Примеры работы}
-На рисунке \ref{fig:4.1} и \ref{fig:4.2} приведен пример работы программы.
+На рисунке \ref{fig:4.1} приведен пример работы программы.
 
 \begin{figure}[h]
     \centering
@@ -16,23 +16,15 @@
 \end{figure}
 
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{4/inc/e2.png}
-    \caption{Примеры работы программы}
-    \label{fig:4.2}
-\end{figure}
-
-\pagebreak
 \section{Результаты тестирования}
 
-На рисунке \ref{fig:4.3} приведен результат теста с использованием фреймворка google test.
+На рисунке \ref{fig:4.2} приведен результат теста с использованием фреймворка google test.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\textwidth]{4/inc/test.png}
     \caption{Результаты тестирования}
-    \label{fig:4.3}
+    \label{fig:4.2}
 \end{figure}
 
 
@@ -40,9 +32,16 @@
 \pagebreak
 \section{Сравнение времени работы}
 
+Операционная система - Ubuntu 20.04.1 LTS
+
+Процессор - Intel® CoreTM i5-7300HQ CPU @ 2.50GHz × 4 (ЦП 4 ядра 4 потока)
+
 В таблице \ref{tabular:benchmark} приведены замеры времени
 работы алгоритмов умножения матриц на квадратных матрицах,
-на основе них построены графики \ref{fig:4.3}.
+на основе них построены графики \ref{fig:4.4}.
+(На графике 5 графиков.
+Графики при использовании 4 потоков и 8 потоков практически идентичны.
+Потому что 4 разных потока не усложняют работу ОС.)
 
 
 
@@ -67,13 +66,20 @@
     \caption{\label{tabular:benchmark} Времени работы (ns)}
 \end{table}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{4/inc/e2.png}
+    \caption{Время работы измерено с использованием Google benchmark}
+    \label{fig:4.3}
+\end{figure}
 
-\pagebreak
+
+\clearpage
 \begin{figure}[!h]
     \centering
     \begin{tikzpicture}
         \begin{axis}[
-            scale=1.7,
+            scale=2,
             axis lines=left,
             xlabel=Размер матрицы,
             ylabel={Время, нс},
@@ -90,7 +96,7 @@
         \end{axis}
     \end{tikzpicture}
     \caption{Зависимость времени работы алгоритмов умножения матриц от размеры матрицы и количество потоков}
-    \label{fig:4.3}
+    \label{fig:4.4}
 \end{figure}
 
 

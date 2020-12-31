@@ -34,8 +34,7 @@ private:
     {
         if (C != R2) throw std::exception();
 
-        Matrix<R,C2,T> r;
-
+        Matrix<R,C2,T> r
         T mulH[R] = {}, mulV[C2] = {};
         T sum;
 
@@ -77,18 +76,16 @@ private:
         return r;
     }
 
+
     template <size_t R2, size_t C2>
     Matrix<R,C2,T> operator&(Matrix<R2,C2,T> &m2)
     {
         if (C != R2) throw std::exception();
 
         Matrix<R,C2,T> r;
-
         T mulH, mulV[C2] = {};
         T sum;
-
         size_t C_ = C >> 1 << 1;
-
 
         for (int j = 0; j < C2; j++)
         {
