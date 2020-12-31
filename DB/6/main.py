@@ -20,13 +20,13 @@ def usage():
 ========================================''')
 
 
-def main_loop(conn):
+def main(conn):
     fs = FunctionStore(conn)
     fs.add('1', f1).add('2', f2).add('3', f3).add('4', f4).add('5', f5)
     fs.add('6', f6).add('7', f7).add('8', f8).add('9', f9).add('10', f10)
 
     choice = 1
-    while (choice and choice != '0'):
+    while choice and choice != '0':
         usage()
         choice = input('Input: ').strip()
         os.system('clear')
@@ -43,4 +43,4 @@ if __name__ == '__main__':
         host='localhost',
         port='5432'
     ) as conn:
-        main_loop(conn)
+        main(conn)

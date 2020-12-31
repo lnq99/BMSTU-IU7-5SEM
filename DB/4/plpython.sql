@@ -84,7 +84,7 @@ as $$
     course = plpy.execute('select course_id from course where course_id = {} limit 1'.format(co_id))
     student = plpy.execute('select student_id from student where student_id = {} limit 1'.format(st_id))
 
-    query = 'insert into studentcourse values ({}, {}, 0)'.format(st_id, co_id)
+    query = 'insert into studentcourse values ({}, {}, 0) on conflict do nothing'.format(st_id, co_id)
 
     if course.nrows() and student.nrows():
         plpy.execute(query)
@@ -103,13 +103,14 @@ returns trigger
 as $$
     n = TD['new']
     plpy.info(n)
-    if n['score'] >= 67:
-        query = """
+    query = """
             update studentcourse
-            set note = 'автомат'
+            set note = Null
             where student_id = {}
             and course_id = {};
         """.format(n['student_id'], n['course_id'])
+    if n['score'] >= 67:
+        query = query.replace('Null', "'автомат'")
     plpy.execute(query)
 $$
 language plpython3u;

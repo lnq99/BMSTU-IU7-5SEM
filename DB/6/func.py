@@ -1,5 +1,10 @@
 import pandas as pd
 
+pd.set_option('display.max_rows', 20)
+pd.set_option('display.max_columns', 10)
+pd.set_option('display.max_colwidth', 100)
+pd.set_option('display.width', 150)
+
 
 class FunctionStore:
     def __init__(self, conn):
@@ -102,7 +107,7 @@ def f7(conn, course_id=10):
 @read_sql
 def f8(conn):
     return '''
-    select current_schema(), current_database(), pg_database_size(current_database());
+    select current(), current_database(), pg_database_size(current_database());
     '''
 
 
@@ -128,7 +133,7 @@ def f10(conn):
         select coalesce(jsonb_agg(r), '[]'::jsonb)
         from (
             select * from course
-            where course.teacher_id = teacher_id
+            where course.teacher_id = teacher.teacher_id
         ) as r
     ) as courses
     from teacher

@@ -30,7 +30,7 @@ CREATE TABLE Student (
 
 CREATE TABLE Teacher (
 	teacher_id	SERIAL,
-	te_position	CHAR(22),
+	t_position	CHAR(22),
 	account_id	INT			NOT NULL
 	-- PRIMARY KEY	(teacher_id),
 	-- FOREIGN KEY (teacher_id) REFERENCES Account(account_id)
