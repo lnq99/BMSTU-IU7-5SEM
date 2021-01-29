@@ -103,6 +103,8 @@ func outBenchmark(nList []int, a []time.Duration, b []time.Duration) {
 	// to CSV format
 	println("n,aco,brute")
 	for i, v := range nList {
-		fmt.Printf("%d,%d,%d\n", v, a[i].Round(time.Microsecond).Microseconds(), b[i].Round(time.Microsecond).Microseconds())
+		fmt.Printf("%d,%d,%d\n", v,
+			a[i].Round(time.Microsecond).Microseconds(),
+			b[i].Round(time.Microsecond).Microseconds())
 	}
 }

@@ -14,9 +14,6 @@ const (
 	TauMin = 0.1
 )
 
-type Param struct {
-}
-
 type Ant struct {
 	env       *Env
 	visited   [][]int
